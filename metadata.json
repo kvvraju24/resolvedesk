@@ -1,0 +1,6 @@
+{
+  "name": "ResolveDesk Precision SaaS",
+  "description": "Enterprise ML-powered ticket triage and routing operations platform featuring CLINC150 benchmark evaluation, interactive confidence threshold gating, and continuous feedback loops.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
