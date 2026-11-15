@@ -10,6 +10,12 @@ export function Providers({ children }) {
   const [session, setSession] = useState(null);
   const [ready, setReady] = useState(false);
   const [toasts, setToasts] = useState([]);
+  // Whether the API runs in demo mode (shared accounts, published password). null = unknown.
+  const [demo, setDemo] = useState(null);
+
+  useEffect(() => {
+    api('/health').then((h) => setDemo(h.demo === true), () => setDemo(false));
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -32,6 +38,7 @@ export function Providers({ children }) {
 
   const auth = useMemo(() => ({
     ready,
+    demo,
     user: session?.user ?? null,
     token: session?.token ?? null,
     login: async (email, password) => save(await api('/auth/login', { method: 'POST', body: { email, password } })),
@@ -41,7 +48,7 @@ export function Providers({ children }) {
       if (e.status === 401) save(null);
       throw e;
     }),
-  }), [session, ready]);
+  }), [session, ready, demo]);
 
   return (
     <AuthCtx.Provider value={auth}>

@@ -27,10 +27,11 @@ export function createApp({ dbFile, modelVersion, config = loadConfig() } = {}) 
   setSigningSecret(config.jwtSecret);
   const db = openDb(dbFile);
   const model = loadModel(modelVersion);
-  ensureBaseData(db, model);
+  ensureBaseData(db, model, { demo: config.demoMode });
   const ctx = {
     db,
     model,
+    demo: config.demoMode,
     threshold: () => db.prepare('SELECT threshold FROM model_versions WHERE is_active = 1').get()?.threshold ?? model.threshold,
   };
 

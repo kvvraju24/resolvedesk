@@ -15,6 +15,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { createApp } from './app.js';
+import { ConfigError, loadConfig } from './config.js';
 import { classify } from './classifier.js';
 import { DEMO_PASSWORD } from './baseData.js';
 
@@ -68,11 +69,29 @@ async function loadClinc() {
   }
 }
 
+// Seeding creates accounts with the published demo password, so it only runs in demo mode.
+function demoConfigOrExit(script) {
+  let config;
+  try {
+    config = loadConfig();
+  } catch (e) {
+    if (!(e instanceof ConfigError)) throw e;
+    console.error(e.message);
+    process.exit(1);
+  }
+  if (!config.demoMode) {
+    console.error(`${script} refused: it creates demo accounts with a published password and only runs with DEMO_MODE=true.`);
+    process.exit(1);
+  }
+  return config;
+}
+
 async function main() {
+  const config = demoConfigOrExit('npm run simulate');
   const raw = await loadClinc();
   if (!raw) return;
   const dbFile = process.env.DB_FILE || path.join(ROOT, 'data', 'resolvedesk.db');
-  const { app, db, ctx } = createApp({ dbFile });
+  const { app, db, ctx } = createApp({ dbFile, config });
   const known = new Set(Object.keys(ctx.model.category_to_team));
 
   for (const s of SUBJECTS) {

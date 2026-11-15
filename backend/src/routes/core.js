@@ -9,7 +9,7 @@ export function coreRouter(ctx) {
   const { db } = ctx;
   const r = Router();
 
-  r.get('/health', (_req, res) => res.json({ ok: true, model: ctx.model.version }));
+  r.get('/health', (_req, res) => res.json({ ok: true, model: ctx.model.version, demo: ctx.demo }));
 
   r.post('/auth/register', (req, res) => {
     const { email, name, password } = req.body ?? {};

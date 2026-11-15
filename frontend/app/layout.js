@@ -1,4 +1,5 @@
 import './globals.css';
+import DemoBanner from '@/components/DemoBanner';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { Providers } from '@/components/Providers';
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <a href="#main" className="visually-hidden">Skip to content</a>
           <Header />
+          <DemoBanner />
           <main id="main">{children}</main>
           <Footer />
         </Providers>

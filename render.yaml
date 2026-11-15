@@ -12,6 +12,10 @@ services:
       # Production mode: the API refuses to start without JWT_SECRET and CORS_ORIGIN.
       - key: NODE_ENV
         value: production
+      # This service is the public demo: shared accounts with a published password.
+      # Set to "false" (and run `npm run bootstrap-admin`) for any deployment holding real data.
+      - key: DEMO_MODE
+        value: "true"
       - key: JWT_SECRET
         generateValue: true
       # Required. Comma-separated frontend origins, e.g. https://resolvedesk.example.com

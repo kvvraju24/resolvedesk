@@ -60,6 +60,15 @@ export function loadConfig(env = process.env) {
     problems.push('CORS_ORIGIN is required: a comma-separated list of frontend origins, e.g. https://app.example.com');
   }
 
+  // Demo mode creates accounts whose password is published on the login page.
+  // On by default only in development and test; production must opt in.
+  let demoMode = !production;
+  if (env.DEMO_MODE === 'true' || env.DEMO_MODE === 'false') demoMode = env.DEMO_MODE === 'true';
+  else if (env.DEMO_MODE) problems.push(`DEMO_MODE must be "true" or "false" (got "${env.DEMO_MODE}").`);
+  if (production && demoMode) {
+    warnings.push('DEMO_MODE is on: demo accounts with a published password exist. Do not store real data.');
+  }
+
   if (problems.length) throw new ConfigError(problems);
-  return { mode, production, jwtSecret, corsOrigins, warnings };
+  return { mode, production, jwtSecret, corsOrigins, demoMode, warnings };
 }
