@@ -9,7 +9,11 @@ services:
     envVars:
       - key: NODE_VERSION
         value: "22.13.0"
+      # Production mode: the API refuses to start without JWT_SECRET and CORS_ORIGIN.
+      - key: NODE_ENV
+        value: production
       - key: JWT_SECRET
         generateValue: true
+      # Required. Comma-separated frontend origins, e.g. https://resolvedesk.example.com
       - key: CORS_ORIGIN
         sync: false

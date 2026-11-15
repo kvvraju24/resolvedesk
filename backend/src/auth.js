@@ -1,7 +1,11 @@
 // Password hashing (scrypt) and HMAC-signed bearer tokens, no external deps.
 import crypto from 'node:crypto';
 
-const SECRET = process.env.JWT_SECRET || 'dev-only-secret-change-me';
+// Set once at startup from the validated configuration (see config.js and app.js).
+let SECRET = null;
+export function setSigningSecret(secret) {
+  SECRET = secret;
+}
 const TTL_SECONDS = 60 * 60 * 12;
 
 export function hashPassword(pw) {
@@ -16,7 +20,10 @@ export function verifyPassword(pw, stored) {
 }
 
 const b64 = (s) => Buffer.from(s).toString('base64url');
-const sign = (data) => crypto.createHmac('sha256', SECRET).update(data).digest('base64url');
+const sign = (data) => {
+  if (!SECRET) throw new Error('Token signing secret is not configured.');
+  return crypto.createHmac('sha256', SECRET).update(data).digest('base64url');
+};
 
 export function issueToken(user) {
   const payload = b64(JSON.stringify({ sub: user.id, role: user.role, exp: Math.floor(Date.now() / 1000) + TTL_SECONDS }));
