@@ -1,0 +1,15 @@
+# One-click deploy of the API to Render (https://render.com). Frontend deploys to Vercel.
+services:
+  - type: web
+    name: resolvedesk-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci && npm run seed && npm run simulate
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "22.13.0"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        sync: false

@@ -1,8 +1,27 @@
+# dependencies & builds
 node_modules/
-build/
-dist/
-coverage/
+frontend/.next/
+frontend/out/
+
+# env & secrets
+.env
+.env.local
+.env.*.local
+
+# runtime data (model artifacts in backend/data/model ARE committed)
+backend/data/*.db
+backend/data/*.db-*
+backend/python/data/
+__pycache__/
+*.pyc
+.venv/
+
+# scratch
+temp/*
+!temp/.gitkeep
+
+# OS / editor
 .DS_Store
+.vscode/
+.idea/
 *.log
-.env*
-!.env.example

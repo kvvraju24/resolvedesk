@@ -1,0 +1,1201 @@
+{
+  "version": "embeddings-minilm",
+  "model": "sentence-transformers/all-MiniLM-L6-v2 (frozen) + logistic_regression(C=10)",
+  "trained_at": "2026-11-15T16:12:57+00:00",
+  "dataset": "CLINC150 data_full",
+  "train_size": 2000,
+  "threshold": 0.55,
+  "threshold_rule": "lowest validation threshold with auto-routed precision >= 0.95",
+  "test": {
+    "inscope_size": 600,
+    "accuracy": 0.9833,
+    "macro_f1": 0.9833,
+    "auto_route_rate": 0.9733,
+    "auto_routed_accuracy": 0.9914,
+    "oos_size": 1000,
+    "oos_accepted_rate": 0.099,
+    "other_intent_size": 3900,
+    "other_intent_accepted_rate": 0.1551,
+    "mixed_auto_route_rate": 0.4269,
+    "mixed_auto_error_rate": 0.1523
+  },
+  "per_category": [
+    {
+      "category": "balance",
+      "team": "banking",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 30
+    },
+    {
+      "category": "bill_due",
+      "team": "billing",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 30
+    },
+    {
+      "category": "book_flight",
+      "team": "travel",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 30
+    },
+    {
+      "category": "card_declined",
+      "team": "cards",
+      "precision": 1.0,
+      "recall": 0.9667,
+      "f1": 0.9831,
+      "support": 30
+    },
+    {
+      "category": "credit_limit_change",
+      "team": "cards",
+      "precision": 0.9677,
+      "recall": 1.0,
+      "f1": 0.9836,
+      "support": 30
+    },
+    {
+      "category": "freeze_account",
+      "team": "banking",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 30
+    },
+    {
+      "category": "international_visa",
+      "team": "travel",
+      "precision": 0.9677,
+      "recall": 1.0,
+      "f1": 0.9836,
+      "support": 30
+    },
+    {
+      "category": "jump_start",
+      "team": "auto",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 30
+    },
+    {
+      "category": "lost_luggage",
+      "team": "travel",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 30
+    },
+    {
+      "category": "oil_change_how",
+      "team": "auto",
+      "precision": 0.9677,
+      "recall": 1.0,
+      "f1": 0.9836,
+      "support": 30
+    },
+    {
+      "category": "order_checks",
+      "team": "billing",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 30
+    },
+    {
+      "category": "pay_bill",
+      "team": "billing",
+      "precision": 0.9355,
+      "recall": 0.9667,
+      "f1": 0.9508,
+      "support": 30
+    },
+    {
+      "category": "replacement_card_duration",
+      "team": "cards",
+      "precision": 1.0,
+      "recall": 0.9333,
+      "f1": 0.9655,
+      "support": 30
+    },
+    {
+      "category": "report_fraud",
+      "team": "banking",
+      "precision": 0.9355,
+      "recall": 0.9667,
+      "f1": 0.9508,
+      "support": 30
+    },
+    {
+      "category": "report_lost_card",
+      "team": "cards",
+      "precision": 0.9643,
+      "recall": 0.9,
+      "f1": 0.931,
+      "support": 30
+    },
+    {
+      "category": "schedule_maintenance",
+      "team": "auto",
+      "precision": 0.9667,
+      "recall": 0.9667,
+      "f1": 0.9667,
+      "support": 30
+    },
+    {
+      "category": "spending_history",
+      "team": "billing",
+      "precision": 0.9677,
+      "recall": 1.0,
+      "f1": 0.9836,
+      "support": 30
+    },
+    {
+      "category": "tire_pressure",
+      "team": "auto",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 30
+    },
+    {
+      "category": "transfer",
+      "team": "banking",
+      "precision": 1.0,
+      "recall": 0.9667,
+      "f1": 0.9831,
+      "support": 30
+    },
+    {
+      "category": "travel_alert",
+      "team": "travel",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 30
+    }
+  ],
+  "val_curve": [
+    {
+      "threshold": 0.0,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.01,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.02,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.03,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.04,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.05,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.06,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.07,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.08,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.09,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.1,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.11,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.3367
+    },
+    {
+      "threshold": 0.12,
+      "auto_rate": 0.9967,
+      "auto_error_rate": 0.3344
+    },
+    {
+      "threshold": 0.13,
+      "auto_rate": 0.995,
+      "auto_error_rate": 0.3333
+    },
+    {
+      "threshold": 0.14,
+      "auto_rate": 0.9867,
+      "auto_error_rate": 0.3277
+    },
+    {
+      "threshold": 0.15,
+      "auto_rate": 0.975,
+      "auto_error_rate": 0.3197
+    },
+    {
+      "threshold": 0.16,
+      "auto_rate": 0.9583,
+      "auto_error_rate": 0.3078
+    },
+    {
+      "threshold": 0.17,
+      "auto_rate": 0.9467,
+      "auto_error_rate": 0.2993
+    },
+    {
+      "threshold": 0.18,
+      "auto_rate": 0.9333,
+      "auto_error_rate": 0.2893
+    },
+    {
+      "threshold": 0.19,
+      "auto_rate": 0.9117,
+      "auto_error_rate": 0.2724
+    },
+    {
+      "threshold": 0.2,
+      "auto_rate": 0.8983,
+      "auto_error_rate": 0.2616
+    },
+    {
+      "threshold": 0.21,
+      "auto_rate": 0.8867,
+      "auto_error_rate": 0.2519
+    },
+    {
+      "threshold": 0.22,
+      "auto_rate": 0.8733,
+      "auto_error_rate": 0.2405
+    },
+    {
+      "threshold": 0.23,
+      "auto_rate": 0.865,
+      "auto_error_rate": 0.2331
+    },
+    {
+      "threshold": 0.24,
+      "auto_rate": 0.855,
+      "auto_error_rate": 0.2242
+    },
+    {
+      "threshold": 0.25,
+      "auto_rate": 0.8383,
+      "auto_error_rate": 0.2087
+    },
+    {
+      "threshold": 0.26,
+      "auto_rate": 0.8383,
+      "auto_error_rate": 0.2087
+    },
+    {
+      "threshold": 0.27,
+      "auto_rate": 0.83,
+      "auto_error_rate": 0.2008
+    },
+    {
+      "threshold": 0.28,
+      "auto_rate": 0.8233,
+      "auto_error_rate": 0.1943
+    },
+    {
+      "threshold": 0.29,
+      "auto_rate": 0.8167,
+      "auto_error_rate": 0.1898
+    },
+    {
+      "threshold": 0.3,
+      "auto_rate": 0.8017,
+      "auto_error_rate": 0.1746
+    },
+    {
+      "threshold": 0.31,
+      "auto_rate": 0.7917,
+      "auto_error_rate": 0.1642
+    },
+    {
+      "threshold": 0.32,
+      "auto_rate": 0.7883,
+      "auto_error_rate": 0.1607
+    },
+    {
+      "threshold": 0.33,
+      "auto_rate": 0.7833,
+      "auto_error_rate": 0.1553
+    },
+    {
+      "threshold": 0.34,
+      "auto_rate": 0.77,
+      "auto_error_rate": 0.1407
+    },
+    {
+      "threshold": 0.35,
+      "auto_rate": 0.76,
+      "auto_error_rate": 0.1316
+    },
+    {
+      "threshold": 0.36,
+      "auto_rate": 0.7567,
+      "auto_error_rate": 0.1278
+    },
+    {
+      "threshold": 0.37,
+      "auto_rate": 0.75,
+      "auto_error_rate": 0.1244
+    },
+    {
+      "threshold": 0.38,
+      "auto_rate": 0.75,
+      "auto_error_rate": 0.1244
+    },
+    {
+      "threshold": 0.39,
+      "auto_rate": 0.74,
+      "auto_error_rate": 0.1126
+    },
+    {
+      "threshold": 0.4,
+      "auto_rate": 0.7383,
+      "auto_error_rate": 0.1106
+    },
+    {
+      "threshold": 0.41,
+      "auto_rate": 0.7333,
+      "auto_error_rate": 0.1045
+    },
+    {
+      "threshold": 0.42,
+      "auto_rate": 0.73,
+      "auto_error_rate": 0.1005
+    },
+    {
+      "threshold": 0.43,
+      "auto_rate": 0.7283,
+      "auto_error_rate": 0.0984
+    },
+    {
+      "threshold": 0.44,
+      "auto_rate": 0.7233,
+      "auto_error_rate": 0.0922
+    },
+    {
+      "threshold": 0.45,
+      "auto_rate": 0.72,
+      "auto_error_rate": 0.0903
+    },
+    {
+      "threshold": 0.46,
+      "auto_rate": 0.715,
+      "auto_error_rate": 0.0862
+    },
+    {
+      "threshold": 0.47,
+      "auto_rate": 0.7067,
+      "auto_error_rate": 0.0755
+    },
+    {
+      "threshold": 0.48,
+      "auto_rate": 0.7017,
+      "auto_error_rate": 0.0689
+    },
+    {
+      "threshold": 0.49,
+      "auto_rate": 0.7,
+      "auto_error_rate": 0.0667
+    },
+    {
+      "threshold": 0.5,
+      "auto_rate": 0.6967,
+      "auto_error_rate": 0.0646
+    },
+    {
+      "threshold": 0.51,
+      "auto_rate": 0.6967,
+      "auto_error_rate": 0.0646
+    },
+    {
+      "threshold": 0.52,
+      "auto_rate": 0.695,
+      "auto_error_rate": 0.0624
+    },
+    {
+      "threshold": 0.53,
+      "auto_rate": 0.6933,
+      "auto_error_rate": 0.0601
+    },
+    {
+      "threshold": 0.54,
+      "auto_rate": 0.6883,
+      "auto_error_rate": 0.0533
+    },
+    {
+      "threshold": 0.55,
+      "auto_rate": 0.6833,
+      "auto_error_rate": 0.0488
+    },
+    {
+      "threshold": 0.56,
+      "auto_rate": 0.68,
+      "auto_error_rate": 0.0466
+    },
+    {
+      "threshold": 0.57,
+      "auto_rate": 0.6783,
+      "auto_error_rate": 0.0442
+    },
+    {
+      "threshold": 0.58,
+      "auto_rate": 0.6783,
+      "auto_error_rate": 0.0442
+    },
+    {
+      "threshold": 0.59,
+      "auto_rate": 0.6767,
+      "auto_error_rate": 0.0443
+    },
+    {
+      "threshold": 0.6,
+      "auto_rate": 0.6767,
+      "auto_error_rate": 0.0443
+    },
+    {
+      "threshold": 0.61,
+      "auto_rate": 0.6733,
+      "auto_error_rate": 0.0421
+    },
+    {
+      "threshold": 0.62,
+      "auto_rate": 0.6667,
+      "auto_error_rate": 0.0325
+    },
+    {
+      "threshold": 0.63,
+      "auto_rate": 0.665,
+      "auto_error_rate": 0.0301
+    },
+    {
+      "threshold": 0.64,
+      "auto_rate": 0.6633,
+      "auto_error_rate": 0.0276
+    },
+    {
+      "threshold": 0.65,
+      "auto_rate": 0.6633,
+      "auto_error_rate": 0.0276
+    },
+    {
+      "threshold": 0.66,
+      "auto_rate": 0.6633,
+      "auto_error_rate": 0.0276
+    },
+    {
+      "threshold": 0.67,
+      "auto_rate": 0.66,
+      "auto_error_rate": 0.0278
+    },
+    {
+      "threshold": 0.68,
+      "auto_rate": 0.6567,
+      "auto_error_rate": 0.0279
+    },
+    {
+      "threshold": 0.69,
+      "auto_rate": 0.655,
+      "auto_error_rate": 0.028
+    },
+    {
+      "threshold": 0.7,
+      "auto_rate": 0.655,
+      "auto_error_rate": 0.028
+    },
+    {
+      "threshold": 0.71,
+      "auto_rate": 0.6533,
+      "auto_error_rate": 0.0281
+    },
+    {
+      "threshold": 0.72,
+      "auto_rate": 0.6417,
+      "auto_error_rate": 0.0234
+    },
+    {
+      "threshold": 0.73,
+      "auto_rate": 0.64,
+      "auto_error_rate": 0.0208
+    },
+    {
+      "threshold": 0.74,
+      "auto_rate": 0.64,
+      "auto_error_rate": 0.0208
+    },
+    {
+      "threshold": 0.75,
+      "auto_rate": 0.6383,
+      "auto_error_rate": 0.0209
+    },
+    {
+      "threshold": 0.76,
+      "auto_rate": 0.6383,
+      "auto_error_rate": 0.0209
+    },
+    {
+      "threshold": 0.77,
+      "auto_rate": 0.6317,
+      "auto_error_rate": 0.0158
+    },
+    {
+      "threshold": 0.78,
+      "auto_rate": 0.6317,
+      "auto_error_rate": 0.0158
+    },
+    {
+      "threshold": 0.79,
+      "auto_rate": 0.6317,
+      "auto_error_rate": 0.0158
+    },
+    {
+      "threshold": 0.8,
+      "auto_rate": 0.63,
+      "auto_error_rate": 0.0159
+    },
+    {
+      "threshold": 0.81,
+      "auto_rate": 0.625,
+      "auto_error_rate": 0.0133
+    },
+    {
+      "threshold": 0.82,
+      "auto_rate": 0.6217,
+      "auto_error_rate": 0.0134
+    },
+    {
+      "threshold": 0.83,
+      "auto_rate": 0.6183,
+      "auto_error_rate": 0.0081
+    },
+    {
+      "threshold": 0.84,
+      "auto_rate": 0.6133,
+      "auto_error_rate": 0.0082
+    },
+    {
+      "threshold": 0.85,
+      "auto_rate": 0.6117,
+      "auto_error_rate": 0.0082
+    },
+    {
+      "threshold": 0.86,
+      "auto_rate": 0.6083,
+      "auto_error_rate": 0.0082
+    },
+    {
+      "threshold": 0.87,
+      "auto_rate": 0.6,
+      "auto_error_rate": 0.0083
+    },
+    {
+      "threshold": 0.88,
+      "auto_rate": 0.5883,
+      "auto_error_rate": 0.0057
+    },
+    {
+      "threshold": 0.89,
+      "auto_rate": 0.5833,
+      "auto_error_rate": 0.0029
+    },
+    {
+      "threshold": 0.9,
+      "auto_rate": 0.5717,
+      "auto_error_rate": 0.0029
+    },
+    {
+      "threshold": 0.91,
+      "auto_rate": 0.5667,
+      "auto_error_rate": 0.0029
+    },
+    {
+      "threshold": 0.92,
+      "auto_rate": 0.5517,
+      "auto_error_rate": 0.003
+    },
+    {
+      "threshold": 0.93,
+      "auto_rate": 0.5333,
+      "auto_error_rate": 0.0031
+    },
+    {
+      "threshold": 0.94,
+      "auto_rate": 0.5133,
+      "auto_error_rate": 0.0032
+    },
+    {
+      "threshold": 0.95,
+      "auto_rate": 0.4867,
+      "auto_error_rate": 0.0
+    },
+    {
+      "threshold": 0.96,
+      "auto_rate": 0.4633,
+      "auto_error_rate": 0.0
+    },
+    {
+      "threshold": 0.97,
+      "auto_rate": 0.3967,
+      "auto_error_rate": 0.0
+    },
+    {
+      "threshold": 0.98,
+      "auto_rate": 0.3217,
+      "auto_error_rate": 0.0
+    },
+    {
+      "threshold": 0.99,
+      "auto_rate": 0.165,
+      "auto_error_rate": 0.0
+    },
+    {
+      "threshold": 1.0,
+      "auto_rate": 0.0,
+      "auto_error_rate": 0.0
+    }
+  ],
+  "test_curve": [
+    {
+      "threshold": 0.0,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.01,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.02,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.03,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.04,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.05,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.06,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.07,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.08,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.09,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.1,
+      "auto_rate": 1.0,
+      "auto_error_rate": 0.6312
+    },
+    {
+      "threshold": 0.11,
+      "auto_rate": 0.9962,
+      "auto_error_rate": 0.6299
+    },
+    {
+      "threshold": 0.12,
+      "auto_rate": 0.9844,
+      "auto_error_rate": 0.6254
+    },
+    {
+      "threshold": 0.13,
+      "auto_rate": 0.9738,
+      "auto_error_rate": 0.6213
+    },
+    {
+      "threshold": 0.14,
+      "auto_rate": 0.9556,
+      "auto_error_rate": 0.6141
+    },
+    {
+      "threshold": 0.15,
+      "auto_rate": 0.9319,
+      "auto_error_rate": 0.6043
+    },
+    {
+      "threshold": 0.16,
+      "auto_rate": 0.9069,
+      "auto_error_rate": 0.5934
+    },
+    {
+      "threshold": 0.17,
+      "auto_rate": 0.8819,
+      "auto_error_rate": 0.5819
+    },
+    {
+      "threshold": 0.18,
+      "auto_rate": 0.8562,
+      "auto_error_rate": 0.5693
+    },
+    {
+      "threshold": 0.19,
+      "auto_rate": 0.825,
+      "auto_error_rate": 0.553
+    },
+    {
+      "threshold": 0.2,
+      "auto_rate": 0.8013,
+      "auto_error_rate": 0.5398
+    },
+    {
+      "threshold": 0.21,
+      "auto_rate": 0.7806,
+      "auto_error_rate": 0.5276
+    },
+    {
+      "threshold": 0.22,
+      "auto_rate": 0.7544,
+      "auto_error_rate": 0.5112
+    },
+    {
+      "threshold": 0.23,
+      "auto_rate": 0.7275,
+      "auto_error_rate": 0.4931
+    },
+    {
+      "threshold": 0.24,
+      "auto_rate": 0.7094,
+      "auto_error_rate": 0.4802
+    },
+    {
+      "threshold": 0.25,
+      "auto_rate": 0.6837,
+      "auto_error_rate": 0.4616
+    },
+    {
+      "threshold": 0.26,
+      "auto_rate": 0.66,
+      "auto_error_rate": 0.4432
+    },
+    {
+      "threshold": 0.27,
+      "auto_rate": 0.6456,
+      "auto_error_rate": 0.4308
+    },
+    {
+      "threshold": 0.28,
+      "auto_rate": 0.6344,
+      "auto_error_rate": 0.4217
+    },
+    {
+      "threshold": 0.29,
+      "auto_rate": 0.6119,
+      "auto_error_rate": 0.4004
+    },
+    {
+      "threshold": 0.3,
+      "auto_rate": 0.5988,
+      "auto_error_rate": 0.3873
+    },
+    {
+      "threshold": 0.31,
+      "auto_rate": 0.5863,
+      "auto_error_rate": 0.3742
+    },
+    {
+      "threshold": 0.32,
+      "auto_rate": 0.5737,
+      "auto_error_rate": 0.3617
+    },
+    {
+      "threshold": 0.33,
+      "auto_rate": 0.5637,
+      "auto_error_rate": 0.3514
+    },
+    {
+      "threshold": 0.34,
+      "auto_rate": 0.5519,
+      "auto_error_rate": 0.3375
+    },
+    {
+      "threshold": 0.35,
+      "auto_rate": 0.5381,
+      "auto_error_rate": 0.3206
+    },
+    {
+      "threshold": 0.36,
+      "auto_rate": 0.5331,
+      "auto_error_rate": 0.3142
+    },
+    {
+      "threshold": 0.37,
+      "auto_rate": 0.5256,
+      "auto_error_rate": 0.3044
+    },
+    {
+      "threshold": 0.38,
+      "auto_rate": 0.5156,
+      "auto_error_rate": 0.2909
+    },
+    {
+      "threshold": 0.39,
+      "auto_rate": 0.5062,
+      "auto_error_rate": 0.2778
+    },
+    {
+      "threshold": 0.4,
+      "auto_rate": 0.5019,
+      "auto_error_rate": 0.2715
+    },
+    {
+      "threshold": 0.41,
+      "auto_rate": 0.4938,
+      "auto_error_rate": 0.2595
+    },
+    {
+      "threshold": 0.42,
+      "auto_rate": 0.485,
+      "auto_error_rate": 0.2461
+    },
+    {
+      "threshold": 0.43,
+      "auto_rate": 0.4813,
+      "auto_error_rate": 0.2416
+    },
+    {
+      "threshold": 0.44,
+      "auto_rate": 0.475,
+      "auto_error_rate": 0.2316
+    },
+    {
+      "threshold": 0.45,
+      "auto_rate": 0.4706,
+      "auto_error_rate": 0.2244
+    },
+    {
+      "threshold": 0.46,
+      "auto_rate": 0.4656,
+      "auto_error_rate": 0.2174
+    },
+    {
+      "threshold": 0.47,
+      "auto_rate": 0.4619,
+      "auto_error_rate": 0.2111
+    },
+    {
+      "threshold": 0.48,
+      "auto_rate": 0.4569,
+      "auto_error_rate": 0.2025
+    },
+    {
+      "threshold": 0.49,
+      "auto_rate": 0.45,
+      "auto_error_rate": 0.1903
+    },
+    {
+      "threshold": 0.5,
+      "auto_rate": 0.4444,
+      "auto_error_rate": 0.18
+    },
+    {
+      "threshold": 0.51,
+      "auto_rate": 0.4419,
+      "auto_error_rate": 0.1768
+    },
+    {
+      "threshold": 0.52,
+      "auto_rate": 0.4369,
+      "auto_error_rate": 0.1717
+    },
+    {
+      "threshold": 0.53,
+      "auto_rate": 0.4338,
+      "auto_error_rate": 0.1657
+    },
+    {
+      "threshold": 0.54,
+      "auto_rate": 0.4313,
+      "auto_error_rate": 0.1609
+    },
+    {
+      "threshold": 0.55,
+      "auto_rate": 0.4269,
+      "auto_error_rate": 0.1523
+    },
+    {
+      "threshold": 0.56,
+      "auto_rate": 0.4219,
+      "auto_error_rate": 0.1422
+    },
+    {
+      "threshold": 0.57,
+      "auto_rate": 0.4175,
+      "auto_error_rate": 0.1332
+    },
+    {
+      "threshold": 0.58,
+      "auto_rate": 0.4131,
+      "auto_error_rate": 0.1256
+    },
+    {
+      "threshold": 0.59,
+      "auto_rate": 0.41,
+      "auto_error_rate": 0.1189
+    },
+    {
+      "threshold": 0.6,
+      "auto_rate": 0.4056,
+      "auto_error_rate": 0.1094
+    },
+    {
+      "threshold": 0.61,
+      "auto_rate": 0.4025,
+      "auto_error_rate": 0.104
+    },
+    {
+      "threshold": 0.62,
+      "auto_rate": 0.3987,
+      "auto_error_rate": 0.0956
+    },
+    {
+      "threshold": 0.63,
+      "auto_rate": 0.3931,
+      "auto_error_rate": 0.0859
+    },
+    {
+      "threshold": 0.64,
+      "auto_rate": 0.3906,
+      "auto_error_rate": 0.0832
+    },
+    {
+      "threshold": 0.65,
+      "auto_rate": 0.3875,
+      "auto_error_rate": 0.079
+    },
+    {
+      "threshold": 0.66,
+      "auto_rate": 0.3837,
+      "auto_error_rate": 0.0749
+    },
+    {
+      "threshold": 0.67,
+      "auto_rate": 0.3806,
+      "auto_error_rate": 0.0673
+    },
+    {
+      "threshold": 0.68,
+      "auto_rate": 0.3787,
+      "auto_error_rate": 0.0644
+    },
+    {
+      "threshold": 0.69,
+      "auto_rate": 0.3744,
+      "auto_error_rate": 0.0568
+    },
+    {
+      "threshold": 0.7,
+      "auto_rate": 0.3725,
+      "auto_error_rate": 0.052
+    },
+    {
+      "threshold": 0.71,
+      "auto_rate": 0.3713,
+      "auto_error_rate": 0.0488
+    },
+    {
+      "threshold": 0.72,
+      "auto_rate": 0.37,
+      "auto_error_rate": 0.0456
+    },
+    {
+      "threshold": 0.73,
+      "auto_rate": 0.3681,
+      "auto_error_rate": 0.0424
+    },
+    {
+      "threshold": 0.74,
+      "auto_rate": 0.3656,
+      "auto_error_rate": 0.0393
+    },
+    {
+      "threshold": 0.75,
+      "auto_rate": 0.3631,
+      "auto_error_rate": 0.0379
+    },
+    {
+      "threshold": 0.76,
+      "auto_rate": 0.3625,
+      "auto_error_rate": 0.0362
+    },
+    {
+      "threshold": 0.77,
+      "auto_rate": 0.3606,
+      "auto_error_rate": 0.0347
+    },
+    {
+      "threshold": 0.78,
+      "auto_rate": 0.3581,
+      "auto_error_rate": 0.0297
+    },
+    {
+      "threshold": 0.79,
+      "auto_rate": 0.3556,
+      "auto_error_rate": 0.0264
+    },
+    {
+      "threshold": 0.8,
+      "auto_rate": 0.3538,
+      "auto_error_rate": 0.0247
+    },
+    {
+      "threshold": 0.81,
+      "auto_rate": 0.35,
+      "auto_error_rate": 0.0214
+    },
+    {
+      "threshold": 0.82,
+      "auto_rate": 0.3488,
+      "auto_error_rate": 0.0215
+    },
+    {
+      "threshold": 0.83,
+      "auto_rate": 0.345,
+      "auto_error_rate": 0.0181
+    },
+    {
+      "threshold": 0.84,
+      "auto_rate": 0.3425,
+      "auto_error_rate": 0.0146
+    },
+    {
+      "threshold": 0.85,
+      "auto_rate": 0.3412,
+      "auto_error_rate": 0.0147
+    },
+    {
+      "threshold": 0.86,
+      "auto_rate": 0.3412,
+      "auto_error_rate": 0.0147
+    },
+    {
+      "threshold": 0.87,
+      "auto_rate": 0.3381,
+      "auto_error_rate": 0.0111
+    },
+    {
+      "threshold": 0.88,
+      "auto_rate": 0.3344,
+      "auto_error_rate": 0.0112
+    },
+    {
+      "threshold": 0.89,
+      "auto_rate": 0.3319,
+      "auto_error_rate": 0.0113
+    },
+    {
+      "threshold": 0.9,
+      "auto_rate": 0.3269,
+      "auto_error_rate": 0.0076
+    },
+    {
+      "threshold": 0.91,
+      "auto_rate": 0.3225,
+      "auto_error_rate": 0.0078
+    },
+    {
+      "threshold": 0.92,
+      "auto_rate": 0.3144,
+      "auto_error_rate": 0.008
+    },
+    {
+      "threshold": 0.93,
+      "auto_rate": 0.3106,
+      "auto_error_rate": 0.006
+    },
+    {
+      "threshold": 0.94,
+      "auto_rate": 0.3013,
+      "auto_error_rate": 0.0062
+    },
+    {
+      "threshold": 0.95,
+      "auto_rate": 0.28,
+      "auto_error_rate": 0.0045
+    },
+    {
+      "threshold": 0.96,
+      "auto_rate": 0.2644,
+      "auto_error_rate": 0.0047
+    },
+    {
+      "threshold": 0.97,
+      "auto_rate": 0.2313,
+      "auto_error_rate": 0.0027
+    },
+    {
+      "threshold": 0.98,
+      "auto_rate": 0.1725,
+      "auto_error_rate": 0.0
+    },
+    {
+      "threshold": 0.99,
+      "auto_rate": 0.0862,
+      "auto_error_rate": 0.0
+    },
+    {
+      "threshold": 1.0,
+      "auto_rate": 0.0,
+      "auto_error_rate": 0.0
+    }
+  ],
+  "latency_ms_p50": 2.45,
+  "latency_ms_p95": 2.71,
+  "latency_hardware": "arm64 CPU, Darwin, torch 2.15.0"
+}

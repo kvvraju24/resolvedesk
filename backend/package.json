@@ -1,0 +1,19 @@
+{
+  "name": "resolvedesk-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/seed.js",
+    "simulate": "node src/simulate.js",
+    "test": "node --test tests/",
+    "train": "cd python && python3 train.py"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
