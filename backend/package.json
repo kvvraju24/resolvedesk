@@ -6,10 +6,11 @@
   "engines": { "node": ">=22.13" },
   "scripts": {
     "start": "node src/server.js",
-    "dev": "node --watch src/server.js",
-    "seed": "node src/seed.js",
-    "simulate": "node src/simulate.js",
-    "test": "node --test tests/*.test.js",
+    "dev": "NODE_ENV=development node --watch src/server.js",
+    "seed": "NODE_ENV=${NODE_ENV:-development} node src/seed.js",
+    "simulate": "NODE_ENV=${NODE_ENV:-development} node src/simulate.js",
+    "bootstrap-admin": "node src/bootstrapAdmin.js",
+    "test": "NODE_ENV=test node --test tests/*.test.js",
     "train": "cd python && python3 train.py"
   },
   "dependencies": {

@@ -1,4 +1,5 @@
-// Base data (teams, staff accounts, active model version), created on start if missing.
+// Base data created on start if missing: teams and the active model version always;
+// demo staff and customers (published password) only in demo mode.
 import { hashPassword } from './auth.js';
 
 export const DEMO_PASSWORD = 'demo1234';
@@ -23,12 +24,12 @@ export const CUSTOMERS = [
   ['sam@example.com', 'Sam Rivera'],
 ];
 
-export function ensureBaseData(db, model) {
+export function ensureBaseData(db, model, { demo = false } = {}) {
   const insTeam = db.prepare('INSERT OR IGNORE INTO teams (slug, name) VALUES (?, ?)');
   for (const [slug, name] of TEAMS) insTeam.run(slug, name);
   const teamId = (slug) => db.prepare('SELECT id FROM teams WHERE slug = ?').get(slug)?.id ?? null;
   const insUser = db.prepare('INSERT OR IGNORE INTO users (email, name, password_hash, role, team_id) VALUES (?, ?, ?, ?, ?)');
-  if (!db.prepare('SELECT 1 FROM users LIMIT 1').get()) {
+  if (demo && !db.prepare('SELECT 1 FROM users LIMIT 1').get()) {
     const hash = hashPassword(DEMO_PASSWORD);
     for (const [email, name, role, team] of STAFF) insUser.run(email, name, hash, role, team && teamId(team));
     for (const [email, name] of CUSTOMERS) insUser.run(email, name, hash, 'customer', null);

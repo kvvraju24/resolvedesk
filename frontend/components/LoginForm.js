@@ -10,7 +10,7 @@ const DEMOS = [
 ];
 
 export default function LoginForm() {
-  const { login, register } = useAuth();
+  const { login, register, demo } = useAuth();
   const notify = useToast();
   const router = useRouter();
   const [mode, setMode] = useState('login');
@@ -59,13 +59,17 @@ export default function LoginForm() {
           </button>
         </div>
       </form>
-      <hr style={{ border: 0, borderTop: '1px solid var(--border)', margin: '20px 0' }} />
-      <p className="small muted">Try the demo (password <code>demo1234</code>):</p>
-      <div className="row">
-        {DEMOS.map(([role, email]) => (
-          <button key={role} className="btn" disabled={busy} onClick={() => go(() => login(email, 'demo1234'), email)}>{role}</button>
-        ))}
-      </div>
+      {demo && (
+        <>
+          <hr style={{ border: 0, borderTop: '1px solid var(--border)', margin: '20px 0' }} />
+          <p className="small muted">Try the demo (password <code>demo1234</code>):</p>
+          <div className="row">
+            {DEMOS.map(([role, email]) => (
+              <button key={role} className="btn" disabled={busy} onClick={() => go(() => login(email, 'demo1234'), email)}>{role}</button>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

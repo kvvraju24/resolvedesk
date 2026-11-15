@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createApp } from './app.js';
+import { ConfigError, loadConfig } from './config.js';
 import { CUSTOMERS, DEMO_PASSWORD } from './baseData.js';
 
 // [customer, subject, body] — mix of clear, ambiguous and unsupported requests.
@@ -35,11 +36,29 @@ const DEMO_REQUESTS = [
   [1, 'Trip issue', 'Problem with my trip payment and the booking changed'],
 ];
 
+// Seeding creates accounts with the published demo password, so it only runs in demo mode.
+function demoConfigOrExit(script) {
+  let config;
+  try {
+    config = loadConfig();
+  } catch (e) {
+    if (!(e instanceof ConfigError)) throw e;
+    console.error(e.message);
+    process.exit(1);
+  }
+  if (!config.demoMode) {
+    console.error(`${script} refused: it creates demo accounts with a published password and only runs with DEMO_MODE=true.`);
+    process.exit(1);
+  }
+  return config;
+}
+
 async function runDemo() {
+  const config = demoConfigOrExit('npm run seed');
   const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
   const dbFile = process.env.DB_FILE || path.join(root, 'data', 'resolvedesk.db');
   for (const f of [dbFile, `${dbFile}-wal`, `${dbFile}-shm`]) fs.rmSync(f, { force: true });
-  const { app, db } = createApp({ dbFile });
+  const { app, db } = createApp({ dbFile, config });
   const server = app.listen(0);
   const base = `http://127.0.0.1:${server.address().port}/api`;
   const call = async (method, url, token, body) => {

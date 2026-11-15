@@ -137,3 +137,6 @@ input[type="range"] { padding: 0; }
 .alerts .alert { margin-bottom: 8px; }
 .alert.warning { background: var(--warn-bg); color: var(--warn); }
 .alert.critical { background: var(--err-bg); color: var(--err); }
+
+/* Demo-mode warning */
+.demo-banner { background: var(--warn-bg); color: var(--warn); border-bottom: 1px solid var(--border); padding: 8px 16px; text-align: center; font-size: .9rem; }

@@ -123,8 +123,10 @@ resolvedesk/
 Requirements: Node ≥ 22.13, Python ≥ 3.10.
 
 ```bash
-cd backend && npm install && npm run seed && npm run simulate && npm start
+cd backend && npm install && npm run seed && npm run simulate && npm run dev
 ```
+
+`npm run dev` runs in development mode, which needs no configuration. `npm start` runs in **production mode** and refuses to start until `JWT_SECRET` (at least 32 bytes) and `CORS_ORIGIN` are set; an unset `NODE_ENV` counts as production. See [Configuration](#configuration).
 
 `npm run simulate` is optional. It adds three weeks of backdated traffic with a drift event so the Model health page has data (see above). It reads the cached CLINC150 file, or downloads it.
 
@@ -204,8 +206,35 @@ GitHub Actions ([`ci.yml`](.github/workflows/ci.yml)) runs the tests, a seed + s
 
 ## Deploy
 
-- **API:** [Render](https://render.com), using the included `render.yaml`. The build seeds the demo and runs the simulation. Set `CORS_ORIGIN` to the frontend URL. `JWT_SECRET` is generated for you.
+- **API:** [Render](https://render.com), using the included `render.yaml`, which sets `NODE_ENV=production`, `DEMO_MODE=true` (it is the public demo) and generates `JWT_SECRET`. The build seeds the demo and runs the simulation. **Set `CORS_ORIGIN` to the frontend origin before deploying**, or both the build and the API refuse to run.
 - **Frontend:** [Vercel](https://vercel.com) with the root directory set to `frontend`. Set `NEXT_PUBLIC_API_URL=https://<api-host>/api`, and optionally `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPPORT_EMAIL` and `NEXT_PUBLIC_SUPPORT_PHONE`, which show clickable `mailto:`/`tel:` links in the footer.
+
+## Configuration
+
+The API validates its settings at startup ([`backend/src/config.js`](backend/src/config.js)) and fails closed: an unset `NODE_ENV` counts as production.
+
+| Variable | Production | Development / test |
+|---|---|---|
+| `NODE_ENV` | `production` or unset | `development` (`npm run dev`, `seed`, `simulate`) or `test` (`npm test`) |
+| `JWT_SECRET` | **required**, at least 32 bytes, not the development secret | optional; a built-in development secret is used |
+| `CORS_ORIGIN` | **required**, comma-separated origins such as `https://app.example.com` (no paths) | optional; any origin is allowed |
+| `DEMO_MODE` | `false` unless set to `true` | `true` unless set to `false` |
+| `DB_FILE` | optional, default `backend/data/resolvedesk.db` | same |
+| `PORT` | optional, default 4000 | same |
+
+**Demo mode** creates the demo staff and customers with the published password `demo1234`, shows the demo sign-in buttons and a "Public demo" warning banner, and is the only mode in which `npm run seed` and `npm run simulate` run (they refuse otherwise, before touching the database). Never enable it where real data is stored.
+
+**First administrator without demo mode:** a fresh database has no accounts. Create one administrator with
+
+```bash
+cd backend && npm run bootstrap-admin
+```
+
+It asks for an email, a name and a password (at least 12 characters, hidden while typing), or reads `BOOTSTRAP_ADMIN_EMAIL`, `BOOTSTRAP_ADMIN_PASSWORD` and `BOOTSTRAP_ADMIN_NAME`. It refuses if an administrator already exists. Remove those variables afterwards. Until staff management exists (backlog T-015/T-024), agents still come only from demo mode.
+
+Generate a secret with `node -e "console.log(require('crypto').randomBytes(48).toString('base64url'))"`.
+
+Every API response carries `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy` and a restrictive `Content-Security-Policy`; production adds `Strict-Transport-Security`.
 
 ## Limitations
 
