@@ -19,6 +19,8 @@ jobs:
           cache: npm
           cache-dependency-path: backend/package-lock.json
       - run: npm ci
+      # Fails on high or critical advisories; moderate ones are reported but do not block.
+      - run: npm audit --audit-level=high
       - run: npm test
       # Smoke test: seed the demo, then replay a short simulated history of CLINC150 traffic.
       - run: npm run seed && npm run simulate -- --days 10 --per-day 15 --drift-days 4
@@ -38,5 +40,6 @@ jobs:
           cache: npm
           cache-dependency-path: frontend/package-lock.json
       - run: npm ci
+      - run: npm audit --audit-level=high
       - run: npm run lint
       - run: npm run build
